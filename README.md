@@ -1,9 +1,6 @@
-# React + useReducer + Redux
+# React + useReducer
 
-Hi! I'm Matias Dominguez Alonso and in this repo I use two techs to state management:
-
-- UseReducer
-- Redux
+Hi! I'm Matias Dominguez Alonso and in this repo I use the useReducer Hook to state manangments
 
 ## Available Scripts
 

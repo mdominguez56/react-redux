@@ -2,6 +2,12 @@ import { useReducer } from "react";
 
 const initialState = { count: 0 };
 
+const init = (initialState) => {
+  return {
+    count: initialState.count + 100,
+  };
+};
+
 const TYPES = {
   INCREMENT: "INCREMENT",
   INCREMENT_5: "INCREMENT_5",
@@ -26,7 +32,7 @@ function reducer(state, action) {
 
 const Count = () => {
   // const [count, setCount] = useState(0);
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState, init);
 
   const add = () => dispatch({ type: TYPES.INCREMENT });
   const add5 = () => dispatch({ type: TYPES.INCREMENT_5, payload: 5 });
