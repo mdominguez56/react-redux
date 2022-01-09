@@ -1,38 +1,17 @@
 import { useReducer } from "react";
-
-const initialState = { count: 0 };
-
-const init = (initialState) => {
-  return {
-    count: initialState.count + 100,
-  };
-};
-
-const TYPES = {
-  INCREMENT: "INCREMENT",
-  INCREMENT_5: "INCREMENT_5",
-  DECREMENT: "DECREMENT",
-  RESET: "RESET",
-};
-
-function reducer(state, action) {
-  switch (action.type) {
-    case TYPES.INCREMENT:
-      return { count: state.count + 1 };
-    case TYPES.DECREMENT:
-      return { count: state.count - 1 };
-    case TYPES.INCREMENT_5:
-      return { count: state.count + action.payload };
-    case TYPES.RESET:
-      return initialState;
-    default:
-      return state;
-  }
-}
+import {
+  counterReducer,
+  countInit,
+  countInitialState,
+} from "../reducers/countReducer";
+import { TYPES } from "../actions/countActions";
 
 const NewCount = () => {
-  // const [count, setCount] = useState(0);
-  const [state, dispatch] = useReducer(reducer, initialState, init);
+  const [state, dispatch] = useReducer(
+    counterReducer,
+    countInitialState,
+    countInit
+  );
 
   const add = () => dispatch({ type: TYPES.INCREMENT });
   const add5 = () => dispatch({ type: TYPES.INCREMENT_5, payload: 5 });
